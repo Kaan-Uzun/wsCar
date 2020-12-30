@@ -75,5 +75,16 @@ namespace CarRestAPI.WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+
+        [HttpGet("getlistbiggerthen/{year}")]
+        public IActionResult GetListBiggerThenParameter(int year)
+        {
+            var result = _carService.GetListBiggerThenParameter(year);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Message);
+        }
     }
 }

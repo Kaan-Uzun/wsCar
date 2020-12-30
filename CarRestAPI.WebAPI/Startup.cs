@@ -37,7 +37,7 @@ namespace CarRestAPI.WebAPI
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "wsCars", Version = "v1",
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "wsCar", Version = "v1",
                     Description = "Car Management System Rest API" });
             });
         }

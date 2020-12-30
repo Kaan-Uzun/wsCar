@@ -65,6 +65,22 @@ namespace CarRestAPI.Business.Concrete
             }
         }
 
+        public IDataResult<List<Car>> GetListBiggerThenParameter(int year)
+        {
+            try
+            {
+                var value = _carDal.GetList(x => x.CarYear >= year).ToList();
+
+                return value != null
+                    ? (IDataResult<List<Car>>)new SuccessDataResult<List<Car>>(value)
+                    : new ErrorDataResult<List<Car>>(GeneralMessages.LIST_NOT_FOUND);
+            }
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<List<Car>>(GeneralMessages.SOMETHING_WENT_WRONG + " Exception Detail: " + ex.Message);
+            }
+        }
+
         public IDataResult<Car> GetById(int id)
         {
             try
